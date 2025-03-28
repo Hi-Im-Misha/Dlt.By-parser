@@ -80,8 +80,25 @@ def save_to_xls(products):
 def main():
     all_products = []
     
+    print("Добро пожаловать в парсер!")
+    print("Введите ссылку для парсинга, 'all' для парсинга всех категорий, или 'help' для помощи.")
+    
+    user_input = input("Ваш выбор: ").strip()
+    
+    if user_input.lower() == "help":
+        print("\nИнструкция:")
+        print("- Введите 'all', чтобы парсер обработал все категории на сайте.")
+        print("- Введите URL конкретной рубрики, чтобы парсер обработал только эту рубрику.")
+        print("- Убедитесь, что URL начинается с 'http' или 'https'.")
+        print("- Пример ввода: https://dlt.by/category\n")
+        return main()  # Перезапускаем главный метод для нового ввода
+    
     try:
-        categories = get_all_categories()
+        if user_input.lower() == "all":
+            categories = get_all_categories()
+        else:
+            categories = [user_input]
+        
         for category in categories:
             product_links = get_product_links(category)
             for link in product_links:
@@ -98,3 +115,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
