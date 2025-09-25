@@ -26,8 +26,7 @@
 
 1. Клонировать репозиторий:
    ```bash
-   git clone https://github.com/username/dlt-parser.git
-   cd dlt-parser
+   git clone https://github.com/Hi-Im-Misha/Dlt.By-parser.git
 2. Установить зависимости:
    ```bash
    pip install -r requirements.txt
